@@ -5,7 +5,7 @@ const bodyParser = require('body-parser');
 
 const dbConfig = require('./config/database');
 
-mongoose.connect(dbConfig.url);
+mongoose.connect(dbConfig.url, {useNewUrlParser: true});
 requireDir(dbConfig.modelsPath);
 
 app.use(bodyParser.json());
