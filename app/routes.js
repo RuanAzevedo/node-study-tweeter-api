@@ -5,6 +5,8 @@ const routes = express.Router();
 
 const controllers = requireDir('./controllers');
 
+const authMiddleware = require('./middlewares/auth');
+
 console.log(controllers);
 
 /**
@@ -12,5 +14,15 @@ console.log(controllers);
  */
 routes.post('/signup', controllers.authController.signup);
 routes.post('/signin', controllers.authController.signin);
+
+/**
+ * ==================
+ * Auth routes
+ */
+routes.use(authMiddleware);
+
+routes.get('/tweets', (req, res) => {
+  res.send('OK');
+});
 
 module.exports = routes;
