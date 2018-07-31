@@ -11,7 +11,6 @@ module.exports = {
 
     } catch (e) {
       return next(e);
-
     }
   },
 
